@@ -4,4 +4,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#F5F5F5</color>
     <color name="textPrimary">#333333</color>
+
+    <!-- Calculator colors -->
+    <color name="calc_btn_number">#37474F</color>
+    <color name="calc_btn_operator">#455A64</color>
+    <color name="calc_btn_on">#2196F3</color>
+    <color name="calc_btn_off">#F44336</color>
+    <color name="calc_btn_del">#E65100</color>
+    <color name="calc_btn_ans">#1B5E20</color>
+    <color name="calc_btn_text">#FFFFFF</color>
+    <color name="calc_display_bg">#263238</color>
+    <color name="calc_display_text">#212121</color>
+    <color name="calc_screen_bg">#1C2733</color>
 </resources>
