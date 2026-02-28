@@ -3,4 +3,9 @@
     <string name="name">Name</string>
     <string name="go_back">Go Back</string>
     <string name="go_to_second_activity">Go to Second Activity</string>
+    <string name="welcome_to_mobile_programming">Welcome to Mobile Programming</string>
+    <string name="let_s_design_something_beautiful">Let’s design something beautiful.</string>
+    <string name="get_started">Get Started</string>
+    <string name="welcome">Welcome</string>
+    <string name="developing_a_basic_calculator">Developing A Basic Calculator Was our First Task.</string>
 </resources>
