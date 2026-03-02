@@ -1,5 +1,6 @@
 package com.example.mobileprogrammingxml
 
+import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
@@ -15,6 +16,7 @@ class SecondActivity : AppCompatActivity() {
     var enabled = true
     private var isError = false
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -69,7 +71,10 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    fun popNumber(view: View) {
+    fun popNumber() {
+        if(!enabled){
+            return
+        }
         if (isError) {
             setScreen(getString(R.string._0))
             return
@@ -82,7 +87,7 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    fun powerOff(view: View) {
+    fun powerOff() {
         enabled = false
         isError = false
         screen.setText("")
@@ -91,7 +96,7 @@ class SecondActivity : AppCompatActivity() {
         screen.isEnabled = false
     }
 
-    fun powerOn(view: View) {
+    fun powerOn() {
         enabled = true
         setScreen(getString(R.string._0))
         screen.hint = getString(R.string._0)
@@ -99,7 +104,7 @@ class SecondActivity : AppCompatActivity() {
         screen.isEnabled = true
     }
 
-    fun calculate(view: View) {
+    fun calculate() {
         if (!enabled) return
         val raw = screen.text.toString()
         // Convert UX symbols to valid math operators for evaluation
@@ -119,9 +124,9 @@ class SecondActivity : AppCompatActivity() {
                     else result.toString()
                 )
             }
-        } catch (e: ArithmeticException) {
+        } catch (_: ArithmeticException) {
             showError("Math Error")
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             showError("Invalid Expr")
         }
     }

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/calc_screen_bg"
     android:padding="32dp">
 
     <!-- Logo/Icon Area -->
@@ -13,16 +13,16 @@
         android:id="@+id/app_icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@android:drawable/ic_menu_compass"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/title_text"
         android:layout_marginBottom="24dp"
         android:contentDescription="@string/app_name"
+        android:src="@android:drawable/ic_menu_compass"
+        app:layout_constraintBottom_toTopOf="@id/title_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:tint="#6200EE"
-        tools:ignore="NotSibling" />
+        tools:ignore="NotSibling,ImageContrastCheck" />
 
     <!-- Title Card -->
     <com.google.android.material.card.MaterialCardView
@@ -107,7 +107,7 @@
                 android:backgroundTint="#03DAC5"
                 android:stateListAnimator="@null"
                 android:text="@string/get_started"
-                android:textColor="#000000"
+                android:textColor="#546E7A"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:cornerRadius="12dp"
