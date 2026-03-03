@@ -1,11 +1,7 @@
 package com.example.mobileprogrammingxml
 
-import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -14,9 +10,10 @@ import net.objecthunter.exp4j.ExpressionBuilder
 /**
  * Calculator screen.
  *
- * Uses an [EditText] as a read-only display (cursor is locked to the end so the
- * user cannot reposition it).  All arithmetic is evaluated at runtime by the
- * exp4j library via [calculate].
+ * The display [EditText] is set non-focusable / non-clickable with
+ * inputType="none" in XML so the soft keyboard never appears and cursor
+ * positioning is a non-issue.  All arithmetic is evaluated at runtime by
+ * the exp4j library via [calculate].
  *
  * State machine:
  *   - [enabled]  — false while the calculator is "off" (all input is ignored).
@@ -28,43 +25,15 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var screen: EditText
 
     /** Whether the calculator is powered on and accepting input. */
-    var enabled = true
+    private var enabled = true
 
     /** True when the display is showing an error message instead of a valid expression. */
     private var isError = false
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
         screen = findViewById(R.id.welcome_text)
-
-        // Force single-line mode so long expressions scroll horizontally
-        screen.isSingleLine = true
-        screen.setHorizontallyScrolling(true)
-
-        // Always keep cursor at the end so the display scrolls to show the latest input
-        screen.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                screen.setSelection(screen.text.length)
-            }
-        })
-
-        // Prevent user from repositioning cursor by tapping
-        screen.setOnTouchListener { _, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                screen.setSelection(screen.text.length)
-            }
-            false
-        }
-
-        screen.setCursorToEnd()
-    }
-    /** Extension helper — moves the cursor to the end of the [EditText] content. */
-    private fun EditText.setCursorToEnd() {
-        setSelection(text.length)
     }
 
     /**
@@ -75,7 +44,6 @@ class SecondActivity : AppCompatActivity() {
         screen.typeface = Typeface.MONOSPACE
         screen.setTextColor(getColor(R.color.calc_display_text))
         screen.setText(value)
-        screen.setCursorToEnd()
         isError = false
     }
 
@@ -86,6 +54,7 @@ class SecondActivity : AppCompatActivity() {
      * character starts a fresh expression.  If the display currently shows "0",
      * the zero is replaced rather than appended.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun addInput(view: View) {
         if (!enabled) return
         val passed = (view as android.widget.Button).text.toString()
@@ -107,7 +76,8 @@ class SecondActivity : AppCompatActivity() {
      * Resets to "0" when the expression becomes empty or on error.
      * Called by the DEL button.
      */
-    fun popNumber() {
+    @Suppress("UNUSED_PARAMETER")
+    fun popNumber(view: View) {
         if (!enabled) return
         if (isError) {
             setScreen(getString(R.string._0))
@@ -127,7 +97,8 @@ class SecondActivity : AppCompatActivity() {
      * and disables the [EditText] so no further input is accepted.
      * Called by the OFF button.
      */
-    fun powerOff() {
+    @Suppress("UNUSED_PARAMETER")
+    fun powerOff(view: View) {
         enabled = false
         isError = false
         screen.setText("")
@@ -141,7 +112,8 @@ class SecondActivity : AppCompatActivity() {
      * rounded-corner background drawable.
      * Called by the ON button.
      */
-    fun powerOn() {
+    @Suppress("UNUSED_PARAMETER")
+    fun powerOn(view: View) {
         enabled = true
         setScreen(getString(R.string._0))
         screen.hint = getString(R.string._0)
@@ -159,6 +131,7 @@ class SecondActivity : AppCompatActivity() {
      * Division by zero and malformed expressions show an error via [showError].
      * Called by the ANS button.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun calculate(view: View) {
         if (!enabled) return
         val raw = screen.text.toString()
@@ -196,7 +169,6 @@ class SecondActivity : AppCompatActivity() {
         screen.typeface = Typeface.MONOSPACE
         screen.setTextColor(getColor(android.R.color.holo_red_light))
         screen.setText(message)
-        screen.setSelection(screen.text.length)
     }
 
 }
