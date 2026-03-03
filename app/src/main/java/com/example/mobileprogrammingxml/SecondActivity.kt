@@ -159,7 +159,7 @@ class SecondActivity : AppCompatActivity() {
      * Division by zero and malformed expressions show an error via [showError].
      * Called by the ANS button.
      */
-    fun calculate() {
+    fun calculate(view: View) {
         if (!enabled) return
         val raw = screen.text.toString()
         // Convert UX symbols to valid math operators for evaluation
