@@ -62,7 +62,6 @@ class SecondActivity : AppCompatActivity() {
 
         screen.setCursorToEnd()
     }
-
     /** Extension helper — moves the cursor to the end of the [EditText] content. */
     private fun EditText.setCursorToEnd() {
         setSelection(text.length)
@@ -199,6 +198,5 @@ class SecondActivity : AppCompatActivity() {
         screen.setText(message)
         screen.setSelection(screen.text.length)
     }
-
 
 }
