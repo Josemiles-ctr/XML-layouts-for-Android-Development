@@ -8,7 +8,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
     }
-fun goBack(view: android.view.View) {
+fun goBack() {
     finish()
 }
 }
