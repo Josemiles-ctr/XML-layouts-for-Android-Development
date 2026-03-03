@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.MobileProgrammingXml" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -6,4 +6,72 @@
     </style>
 
     <style name="Theme.MobileProgrammingXml" parent="Base.Theme.MobileProgrammingXml" />
+
+    <!-- Base calculator button style -->
+    <style name="CalcButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/calc_btn_text</item>
+        <item name="backgroundTint">@color/calc_btn_number</item>
+    </style>
+
+    <!-- Number buttons (1-9, 0) -->
+    <style name="CalcButton.Number">
+        <item name="backgroundTint">@color/calc_btn_number</item>
+    </style>
+
+    <!-- Operator buttons (+, -, ×, ÷) -->
+    <style name="CalcButton.Operator">
+        <item name="backgroundTint">@color/calc_btn_operator</item>
+    </style>
+
+    <!-- ON button -->
+    <style name="CalcButton.On">
+        <item name="android:layout_marginTop">48dp</item>
+        <item name="backgroundTint">@color/calc_btn_on</item>
+    </style>
+
+    <!-- OFF button -->
+    <style name="CalcButton.Off">
+        <item name="android:layout_marginTop">48dp</item>
+        <item name="backgroundTint">@color/calc_btn_off</item>
+    </style>
+
+    <!-- DEL button -->
+    <style name="CalcButton.Del">
+        <item name="android:layout_marginTop">48dp</item>
+        <item name="backgroundTint">@color/calc_btn_del</item>
+    </style>
+
+    <!-- ANS button -->
+    <style name="CalcButton.Ans">
+        <item name="backgroundTint">@color/calc_btn_ans</item>
+    </style>
+
+    <!-- Calculator display (EditText) -->
+    <style name="CalcDisplay">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">104dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:inputType">text</item>
+        <item name="android:minHeight">120dp</item>
+        <item name="android:maxHeight">120dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/calc_display_text</item>
+        <item name="android:textColorHint">#757575</item>
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
 </resources>
