@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Calculator screen layout (base / pre-API-28 fallback).
+    Identical structure to layout-v28/activity_second.xml but with explicit
+    width/height set on the display EditText for devices that don't support
+    android:textFontWeight.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +24,8 @@
     <EditText
         android:id="@+id/welcome_text"
         style="@style/CalcDisplay"
+        android:layout_width="347dp"
+        android:layout_height="162dp"
         android:layout_marginTop="48dp"
         android:autofillHints=""
         android:fontFamily="monospace"
@@ -25,27 +33,27 @@
         android:importantForAutofill="no"
         android:text="@string/_0"
         android:textFontWeight="400"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_max="488dp" />
+        app:layout_constraintWidth_max="488dp"
+        tools:targetApi="28" />
 
     <Button
         android:id="@+id/button_on"
         style="@style/CalcButton.On"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="48dp"
+        android:onClick="powerOn"
         android:text="@string/btn_on"
         app:layout_constraintEnd_toStartOf="@+id/button_of"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text"
-        tools:ignore="VisualLintButtonSize"
-        android:onClick="powerOn"/>
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_of"
         style="@style/CalcButton.Off"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="48dp"
         android:onClick="powerOff"
         android:text="@string/btn_off"
         app:layout_constraintEnd_toStartOf="@+id/button_del"
@@ -56,13 +64,13 @@
     <Button
         android:id="@+id/button_del"
         style="@style/CalcButton.Del"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="48dp"
+        android:onClick="popNumber"
         android:text="@string/btn_del"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_of"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text"
-        tools:ignore="VisualLintButtonSize"
-        android:onClick="popNumber"/>
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button1"
@@ -75,18 +83,19 @@
         tools:ignore="VisualLintButtonSize"
         android:onClick="addInput"/>
 
+    <!-- Row 2: 4, 5, 6 -->
+
     <Button
         android:id="@+id/button2"
         style="@style/CalcButton.Number"
         android:layout_marginTop="60dp"
+        android:onClick="addInput"
         android:text="@string/_2"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button1"
         app:layout_constraintTop_toBottomOf="@+id/button_on"
-        tools:ignore="VisualLintButtonSize"
-        android:onClick="addInput"/>
+        tools:ignore="VisualLintButtonSize" />
 
-    <!-- Row 2: 4, 5, 6 -->
     <Button
         android:id="@+id/button3"
         style="@style/CalcButton.Number"

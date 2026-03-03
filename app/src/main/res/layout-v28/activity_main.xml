@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Welcome / splash screen layout (API 28+).
+    Uses ConstraintLayout with two MaterialCardViews:
+      - Title card  : app icon + app title + subtitle
+      - Button card : "Get Started" button that launches the calculator
+    The icon and cards are packed vertically in the center of the screen.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
